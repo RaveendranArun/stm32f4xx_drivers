@@ -1186,17 +1186,17 @@ void GPIO_IRQInterruptConfig(uint8_t uIRQNumber, uint8_t uEnorDi)
  80008ae:	71fb      	strb	r3, [r7, #7]
  80008b0:	4613      	mov	r3, r2
  80008b2:	71bb      	strb	r3, [r7, #6]
-	if (uEnorDi == ENABLE)
+    if (uEnorDi == ENABLE)
  80008b4:	79bb      	ldrb	r3, [r7, #6]
  80008b6:	2b01      	cmp	r3, #1
  80008b8:	d133      	bne.n	8000922 <GPIO_IRQInterruptConfig+0x7e>
-	{
-		if (uIRQNumber <= 31)
+    {
+        if (uIRQNumber <= 31)
  80008ba:	79fb      	ldrb	r3, [r7, #7]
  80008bc:	2b1f      	cmp	r3, #31
  80008be:	d80a      	bhi.n	80008d6 <GPIO_IRQInterruptConfig+0x32>
 		{
-			/* Programm ISER0 */
+            /* Programm ISER0 */
 			*NVIC_ISER0 |= (1 << uIRQNumber);
  80008c0:	4b35      	ldr	r3, [pc, #212]	; (8000998 <GPIO_IRQInterruptConfig+0xf4>)
  80008c2:	681b      	ldr	r3, [r3, #0]

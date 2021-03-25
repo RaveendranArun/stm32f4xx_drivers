@@ -377,11 +377,11 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t* pGPIOx, uint8_t uPinNumber)
 
 void GPIO_IRQInterruptConfig(uint8_t uIRQNumber, uint8_t uEnorDi)
 {
-	if (uEnorDi == ENABLE)
-	{
-		if (uIRQNumber <= 31)
+    if (uEnorDi == ENABLE)
+    {
+        if (uIRQNumber <= 31)
 		{
-			/* Programm ISER0 */
+            /* Programm ISER0 */
 			*NVIC_ISER0 |= (1 << uIRQNumber);
 		}
 		else if ( (uIRQNumber > 31) && (uIRQNumber < 64) )
